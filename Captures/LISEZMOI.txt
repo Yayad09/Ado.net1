@@ -1,9 +1,0 @@
-Placer ici les captures d'écran de l'application (une par onglet), avec ces noms
-pour qu'elles s'affichent dans le README :
-
-  onglet_lieux.png
-  onglet_personnages.png
-  onglet_missions.png
-  conflit_mission.png   (facultatif : message de conflit)
-
-Sous Windows : Win + Maj + S, puis enregistrer l'image dans ce dossier.
