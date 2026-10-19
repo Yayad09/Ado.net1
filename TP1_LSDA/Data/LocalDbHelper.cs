@@ -67,13 +67,14 @@ namespace TP1_LSDA.Data
 
             // « create » échoue sans conséquence si l'instance existe déjà.
             Executer(exe, $"create \"{instance}\"");
-            Executer(exe, $"start \"{instance}\"");
+            string demarrage = Executer(exe, $"start \"{instance}\"");
             string info = Executer(exe, $"info \"{instance}\"");
 
             Match match = PipeRegex.Match(info);
             if (!match.Success)
                 throw new InvalidOperationException(
-                    $"L'instance LocalDB « {instance} » n'a pas pu être démarrée.\n\nRéponse de sqllocaldb :\n{info}");
+                    $"L'instance LocalDB « {instance} » n'a pas pu être démarrée.\n\n" +
+                    $"sqllocaldb start :\n{demarrage.Trim()}\n\nsqllocaldb info :\n{info.Trim()}");
 
             return match.Groups[1].Value;
         }
