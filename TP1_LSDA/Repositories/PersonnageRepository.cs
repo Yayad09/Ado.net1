@@ -35,7 +35,7 @@ namespace TP1_LSDA.Repositories
         {
             const string sql =
                 "INSERT INTO dbo.Personnage (Nom, Race, Faction) " +
-                "OUTPUT INSERTED.Id VALUES (@Nom, @Race, @Faction);";
+                "VALUES (@Nom, @Race, @Faction); SELECT CAST(SCOPE_IDENTITY() AS int);";
 
             return Convert.ToInt32(ExecuteScalar(sql,
                 Param("@Nom", SqlDbType.NVarChar, 100, entity.Nom),

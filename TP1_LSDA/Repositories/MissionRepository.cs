@@ -63,7 +63,9 @@ namespace TP1_LSDA.Repositories
         {
             const string sql =
                 "INSERT INTO dbo.Mission (LieuId, PersonnageId, DateDebut, DateFin) " +
-                "OUTPUT INSERTED.Id VALUES (@LieuId, @PersonnageId, @DateDebut, @DateFin);";
+                "VALUES (@LieuId, @PersonnageId, @DateDebut, @DateFin); " +
+                // SCOPE_IDENTITY plutôt que OUTPUT : OUTPUT sans INTO est interdit sur une table avec trigger.
+                "SELECT CAST(SCOPE_IDENTITY() AS int);";
 
             return Convert.ToInt32(ExecuteScalar(sql,
                 Param("@LieuId", SqlDbType.Int, entity.LieuId),
