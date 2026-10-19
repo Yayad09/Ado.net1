@@ -19,6 +19,7 @@ namespace TP1_LSDA.UI
         {
             this.components = new System.ComponentModel.Container();
             this.dgvPersonnages = new System.Windows.Forms.DataGridView();
+            this.pnlDroite = new System.Windows.Forms.Panel();
             this.bsPersonnages = new System.Windows.Forms.BindingSource(this.components);
             this.grpEdition = new System.Windows.Forms.GroupBox();
             this.lblNom = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@ namespace TP1_LSDA.UI
             this.lblStatut = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPersonnages)).BeginInit();
+            this.pnlDroite.SuspendLayout();
             this.grpEdition.SuspendLayout();
             this.SuspendLayout();
             //
@@ -42,24 +44,20 @@ namespace TP1_LSDA.UI
             //
             this.dgvPersonnages.AllowUserToAddRows = false;
             this.dgvPersonnages.AllowUserToDeleteRows = false;
-            this.dgvPersonnages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPersonnages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPersonnages.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvPersonnages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPersonnages.Location = new System.Drawing.Point(12, 12);
             this.dgvPersonnages.MultiSelect = false;
             this.dgvPersonnages.Name = "dgvPersonnages";
             this.dgvPersonnages.ReadOnly = true;
             this.dgvPersonnages.RowHeadersWidth = 30;
             this.dgvPersonnages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPersonnages.Size = new System.Drawing.Size(780, 690);
             this.dgvPersonnages.TabIndex = 0;
             this.dgvPersonnages.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvPersonnages_DataError);
             //
             // grpEdition
             //
-            this.grpEdition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpEdition.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpEdition.Controls.Add(this.lblNom);
             this.grpEdition.Controls.Add(this.txtNom);
             this.grpEdition.Controls.Add(this.lblRace);
@@ -70,7 +68,6 @@ namespace TP1_LSDA.UI
             this.grpEdition.Controls.Add(this.btnSauvegarder);
             this.grpEdition.Controls.Add(this.btnSupprimer);
             this.grpEdition.Controls.Add(this.btnAnnuler);
-            this.grpEdition.Location = new System.Drawing.Point(806, 12);
             this.grpEdition.Name = "grpEdition";
             this.grpEdition.Size = new System.Drawing.Size(370, 300);
             this.grpEdition.TabIndex = 1;
@@ -170,10 +167,10 @@ namespace TP1_LSDA.UI
             //
             // lblAide
             //
-            this.lblAide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAide.Location = new System.Drawing.Point(806, 325);
+            this.lblAide.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblAide.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
             this.lblAide.Name = "lblAide";
-            this.lblAide.Size = new System.Drawing.Size(370, 130);
+            this.lblAide.Size = new System.Drawing.Size(370, 150);
             this.lblAide.TabIndex = 2;
             this.lblAide.Text = "Sélectionnez un personnage dans la grille pour le modifier dans les zones d'édition.\r\n\r\n" +
     "« Ajouter » crée une nouvelle ligne; « Sauvegarder » envoie tous les ajouts et modifications " +
@@ -182,29 +179,40 @@ namespace TP1_LSDA.UI
             //
             // lblStatut
             //
-            this.lblStatut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblStatut.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
             this.lblStatut.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.lblStatut.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblStatut.Location = new System.Drawing.Point(806, 465);
             this.lblStatut.Name = "lblStatut";
             this.lblStatut.Size = new System.Drawing.Size(370, 60);
             this.lblStatut.TabIndex = 3;
+            //
+            // pnlDroite
+            //
+            this.pnlDroite.Controls.Add(this.lblStatut);
+            this.pnlDroite.Controls.Add(this.lblAide);
+            this.pnlDroite.Controls.Add(this.grpEdition);
+            this.pnlDroite.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlDroite.Name = "pnlDroite";
+            this.pnlDroite.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.pnlDroite.Size = new System.Drawing.Size(390, 690);
+            this.pnlDroite.TabIndex = 1;
             //
             // FrmPersonnages
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1188, 714);
-            this.Controls.Add(this.lblStatut);
-            this.Controls.Add(this.lblAide);
-            this.Controls.Add(this.grpEdition);
             this.Controls.Add(this.dgvPersonnages);
+            this.Controls.Add(this.pnlDroite);
+            this.Padding = new System.Windows.Forms.Padding(12);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Name = "FrmPersonnages";
             this.Text = "Personnages";
             this.Load += new System.EventHandler(this.FrmPersonnages_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPersonnages)).EndInit();
+            this.pnlDroite.ResumeLayout(false);
             this.grpEdition.ResumeLayout(false);
             this.grpEdition.PerformLayout();
             this.ResumeLayout(false);
@@ -214,6 +222,7 @@ namespace TP1_LSDA.UI
 
         private System.Windows.Forms.DataGridView dgvPersonnages;
         private System.Windows.Forms.BindingSource bsPersonnages;
+        private System.Windows.Forms.Panel pnlDroite;
         private System.Windows.Forms.GroupBox grpEdition;
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.TextBox txtNom;

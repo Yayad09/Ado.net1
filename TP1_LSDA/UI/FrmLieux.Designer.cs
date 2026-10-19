@@ -19,6 +19,7 @@ namespace TP1_LSDA.UI
         {
             this.components = new System.ComponentModel.Container();
             this.dgvLieux = new System.Windows.Forms.DataGridView();
+            this.pnlDroite = new System.Windows.Forms.Panel();
             this.bsLieux = new System.Windows.Forms.BindingSource(this.components);
             this.grpEdition = new System.Windows.Forms.GroupBox();
             this.lblNomLieu = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@ namespace TP1_LSDA.UI
             this.lblStatut = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLieux)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsLieux)).BeginInit();
+            this.pnlDroite.SuspendLayout();
             this.grpEdition.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDangerosite)).BeginInit();
             this.SuspendLayout();
@@ -43,24 +45,20 @@ namespace TP1_LSDA.UI
             //
             this.dgvLieux.AllowUserToAddRows = false;
             this.dgvLieux.AllowUserToDeleteRows = false;
-            this.dgvLieux.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLieux.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLieux.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvLieux.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLieux.Location = new System.Drawing.Point(12, 12);
             this.dgvLieux.MultiSelect = false;
             this.dgvLieux.Name = "dgvLieux";
             this.dgvLieux.ReadOnly = true;
             this.dgvLieux.RowHeadersWidth = 30;
             this.dgvLieux.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLieux.Size = new System.Drawing.Size(780, 690);
             this.dgvLieux.TabIndex = 0;
             this.dgvLieux.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvLieux_DataError);
             //
             // grpEdition
             //
-            this.grpEdition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpEdition.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpEdition.Controls.Add(this.lblNomLieu);
             this.grpEdition.Controls.Add(this.txtNomLieu);
             this.grpEdition.Controls.Add(this.lblRoyaume);
@@ -71,7 +69,6 @@ namespace TP1_LSDA.UI
             this.grpEdition.Controls.Add(this.btnSauvegarder);
             this.grpEdition.Controls.Add(this.btnSupprimer);
             this.grpEdition.Controls.Add(this.btnAnnuler);
-            this.grpEdition.Location = new System.Drawing.Point(806, 12);
             this.grpEdition.Name = "grpEdition";
             this.grpEdition.Size = new System.Drawing.Size(370, 300);
             this.grpEdition.TabIndex = 1;
@@ -170,10 +167,10 @@ namespace TP1_LSDA.UI
             //
             // lblAide
             //
-            this.lblAide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAide.Location = new System.Drawing.Point(806, 325);
+            this.lblAide.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblAide.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
             this.lblAide.Name = "lblAide";
-            this.lblAide.Size = new System.Drawing.Size(370, 130);
+            this.lblAide.Size = new System.Drawing.Size(370, 150);
             this.lblAide.TabIndex = 2;
             this.lblAide.Text = "Sélectionnez un lieu dans la grille pour le modifier dans les zones d'édition.\r\n\r\n" +
     "« Ajouter » crée une nouvelle ligne; « Sauvegarder » envoie tous les ajouts et modifications " +
@@ -182,29 +179,40 @@ namespace TP1_LSDA.UI
             //
             // lblStatut
             //
-            this.lblStatut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblStatut.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
             this.lblStatut.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.lblStatut.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblStatut.Location = new System.Drawing.Point(806, 465);
             this.lblStatut.Name = "lblStatut";
             this.lblStatut.Size = new System.Drawing.Size(370, 60);
             this.lblStatut.TabIndex = 3;
+            //
+            // pnlDroite
+            //
+            this.pnlDroite.Controls.Add(this.lblStatut);
+            this.pnlDroite.Controls.Add(this.lblAide);
+            this.pnlDroite.Controls.Add(this.grpEdition);
+            this.pnlDroite.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlDroite.Name = "pnlDroite";
+            this.pnlDroite.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.pnlDroite.Size = new System.Drawing.Size(390, 690);
+            this.pnlDroite.TabIndex = 1;
             //
             // FrmLieux
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1188, 714);
-            this.Controls.Add(this.lblStatut);
-            this.Controls.Add(this.lblAide);
-            this.Controls.Add(this.grpEdition);
             this.Controls.Add(this.dgvLieux);
+            this.Controls.Add(this.pnlDroite);
+            this.Padding = new System.Windows.Forms.Padding(12);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Name = "FrmLieux";
             this.Text = "Lieux";
             this.Load += new System.EventHandler(this.FrmLieux_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLieux)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsLieux)).EndInit();
+            this.pnlDroite.ResumeLayout(false);
             this.grpEdition.ResumeLayout(false);
             this.grpEdition.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDangerosite)).EndInit();
@@ -215,6 +223,7 @@ namespace TP1_LSDA.UI
 
         private System.Windows.Forms.DataGridView dgvLieux;
         private System.Windows.Forms.BindingSource bsLieux;
+        private System.Windows.Forms.Panel pnlDroite;
         private System.Windows.Forms.GroupBox grpEdition;
         private System.Windows.Forms.Label lblNomLieu;
         private System.Windows.Forms.TextBox txtNomLieu;

@@ -17,6 +17,7 @@ namespace TP1_LSDA.UI
 
         private void InitializeComponent()
         {
+            this.tlpMissions = new System.Windows.Forms.TableLayoutPanel();
             this.grpCreation = new System.Windows.Forms.GroupBox();
             this.lblLieu = new System.Windows.Forms.Label();
             this.cbLieu = new System.Windows.Forms.ComboBox();
@@ -46,6 +47,7 @@ namespace TP1_LSDA.UI
             this.btnActualiserMissions = new System.Windows.Forms.Button();
             this.btnSupprimerMission = new System.Windows.Forms.Button();
             this.lblNbMissions = new System.Windows.Forms.Label();
+            this.tlpMissions.SuspendLayout();
             this.grpCreation.SuspendLayout();
             this.grpRecherche.SuspendLayout();
             this.grpListe.SuspendLayout();
@@ -66,8 +68,7 @@ namespace TP1_LSDA.UI
             this.grpCreation.Controls.Add(this.btnVerifierConflit);
             this.grpCreation.Controls.Add(this.btnCreerMission);
             this.grpCreation.Controls.Add(this.lblResultatConflit);
-            this.grpCreation.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
-            this.grpCreation.Location = new System.Drawing.Point(12, 12);
+            this.grpCreation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpCreation.Size = new System.Drawing.Size(420, 330);
             this.grpCreation.TabStop = false;
             this.grpCreation.Text = "Création d'une mission";
@@ -188,8 +189,7 @@ namespace TP1_LSDA.UI
             this.grpRecherche.Controls.Add(this.btnRechercher);
             this.grpRecherche.Controls.Add(this.lblNbResultats);
             this.grpRecherche.Controls.Add(this.dgvResultats);
-            this.grpRecherche.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
-            this.grpRecherche.Location = new System.Drawing.Point(444, 12);
+            this.grpRecherche.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpRecherche.Size = new System.Drawing.Size(732, 330);
             this.grpRecherche.TabStop = false;
             this.grpRecherche.Text = "Recherche filtrée (mode connecté)";
@@ -306,8 +306,7 @@ namespace TP1_LSDA.UI
             this.grpListe.Controls.Add(this.btnActualiserMissions);
             this.grpListe.Controls.Add(this.btnSupprimerMission);
             this.grpListe.Controls.Add(this.lblNbMissions);
-            this.grpListe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
-            this.grpListe.Location = new System.Drawing.Point(12, 350);
+            this.grpListe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpListe.Size = new System.Drawing.Size(1164, 355);
             this.grpListe.TabStop = false;
             this.grpListe.Text = "Liste globale des missions (mode déconnecté : DataSet)";
@@ -361,14 +360,29 @@ namespace TP1_LSDA.UI
             this.lblNbMissions.Name = "lblNbMissions";
             this.lblNbMissions.TabIndex = 3;
             //
+            // tlpMissions
+            //
+            this.tlpMissions.ColumnCount = 2;
+            this.tlpMissions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36F));
+            this.tlpMissions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64F));
+            this.tlpMissions.Controls.Add(this.grpCreation, 0, 0);
+            this.tlpMissions.Controls.Add(this.grpRecherche, 1, 0);
+            this.tlpMissions.Controls.Add(this.grpListe, 0, 1);
+            this.tlpMissions.SetColumnSpan(this.grpListe, 2);
+            this.tlpMissions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpMissions.Name = "tlpMissions";
+            this.tlpMissions.Padding = new System.Windows.Forms.Padding(6);
+            this.tlpMissions.RowCount = 2;
+            this.tlpMissions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48F));
+            this.tlpMissions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52F));
+            this.tlpMissions.TabIndex = 0;
+            //
             // FrmMissions
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1188, 714);
-            this.Controls.Add(this.grpListe);
-            this.Controls.Add(this.grpRecherche);
-            this.Controls.Add(this.grpCreation);
+            this.Controls.Add(this.tlpMissions);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Name = "FrmMissions";
             this.Text = "Missions";
@@ -381,11 +395,13 @@ namespace TP1_LSDA.UI
             this.grpRecherche.PerformLayout();
             this.grpListe.ResumeLayout(false);
             this.grpListe.PerformLayout();
+            this.tlpMissions.ResumeLayout(false);
             this.ResumeLayout(false);
         }
 
         #endregion
 
+        private System.Windows.Forms.TableLayoutPanel tlpMissions;
         private System.Windows.Forms.GroupBox grpCreation;
         private System.Windows.Forms.Label lblLieu;
         private System.Windows.Forms.ComboBox cbLieu;
