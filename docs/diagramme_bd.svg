@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" viewBox="0 0 760 560" font-family="Segoe UI, Arial, sans-serif" font-size="15">
+  <rect width="760" height="560" fill="#ffffff"/>
+  <defs>
+    <style>
+      .box { fill: #f4f4f4; stroke: #444; stroke-width: 1.5; }
+      .head { fill: #e3eef9; stroke: #444; stroke-width: 1.5; }
+      .title { font-weight: bold; font-size: 17px; }
+      .pk { font-weight: bold; }
+      .fk { fill: #8a3b00; }
+      .line { stroke: #444; stroke-width: 1.5; fill: none; }
+      .note { fill: #fffbd0; stroke: #a59a3c; stroke-width: 1.2; }
+    </style>
+  </defs>
+
+  <!-- Lieu -->
+  <rect class="box" x="40" y="30" width="290" height="150" rx="4"/>
+  <rect class="head" x="40" y="30" width="290" height="36" rx="4"/>
+  <text class="title" x="185" y="54" text-anchor="middle">Lieu</text>
+  <text class="pk" x="55" y="90">PK  Id : int (IDENTITY)</text>
+  <line x1="40" y1="100" x2="330" y2="100" stroke="#444"/>
+  <text x="55" y="122">NomLieu : nvarchar(100)  UNIQUE</text>
+  <text x="55" y="145">Royaume : nvarchar(50)</text>
+  <text x="55" y="168">Dangerosite : int  (1 à 10)</text>
+
+  <!-- Personnage -->
+  <rect class="box" x="430" y="30" width="290" height="150" rx="4"/>
+  <rect class="head" x="430" y="30" width="290" height="36" rx="4"/>
+  <text class="title" x="575" y="54" text-anchor="middle">Personnage</text>
+  <text class="pk" x="445" y="90">PK  Id : int (IDENTITY)</text>
+  <line x1="430" y1="100" x2="720" y2="100" stroke="#444"/>
+  <text x="445" y="122">Nom : nvarchar(100)  UNIQUE</text>
+  <text x="445" y="145">Race : nvarchar(50)</text>
+  <text x="445" y="168">Faction : nvarchar(50)</text>
+
+  <!-- Mission -->
+  <rect class="box" x="210" y="290" width="340" height="170" rx="4"/>
+  <rect class="head" x="210" y="290" width="340" height="36" rx="4"/>
+  <text class="title" x="380" y="314" text-anchor="middle">Mission</text>
+  <text class="pk" x="225" y="350">PK  Id : int (IDENTITY)</text>
+  <line x1="210" y1="360" x2="550" y2="360" stroke="#444"/>
+  <text class="fk" x="225" y="382">FK  LieuId : int → Lieu.Id</text>
+  <text class="fk" x="225" y="405">FK  PersonnageId : int → Personnage.Id</text>
+  <text x="225" y="428">DateDebut : datetime</text>
+  <text x="225" y="451">DateFin : datetime  (CHECK &gt; DateDebut)</text>
+
+  <!-- Relation Lieu 1 — 0..* Mission -->
+  <path class="line" d="M185 180 L330 290"/>
+  <path class="line" d="M178 192 L196 179"/>
+  <path class="line" d="M184 197 L202 184"/>
+  <circle cx="314" cy="278" r="6" fill="#fff" stroke="#444" stroke-width="1.5"/>
+  <path class="line" d="M330 290 L312 290 M330 290 L322 274"/>
+  <text x="270" y="228">LieuId</text>
+  <text x="200" y="208" font-size="13">1</text>
+  <text x="300" y="262" font-size="13">0..*</text>
+
+  <!-- Relation Personnage 1 — 0..* Mission -->
+  <path class="line" d="M575 180 L430 290"/>
+  <path class="line" d="M564 179 L582 192"/>
+  <path class="line" d="M558 184 L576 197"/>
+  <circle cx="446" cy="278" r="6" fill="#fff" stroke="#444" stroke-width="1.5"/>
+  <path class="line" d="M430 290 L448 290 M430 290 L438 274"/>
+  <text x="470" y="228">PersonnageId</text>
+  <text x="552" y="208" font-size="13">1</text>
+  <text x="430" y="262" font-size="13">0..*</text>
+
+  <!-- Note -->
+  <path class="line" d="M380 460 L380 490" stroke-dasharray="4 3"/>
+  <path class="note" d="M190 490 L560 490 L570 500 L570 545 L190 545 Z"/>
+  <text x="205" y="513">Contrainte : pas de chevauchement temporel</text>
+  <text x="205" y="535">pour un même Lieu (app + trigger SQL)</text>
+</svg>
