@@ -13,7 +13,7 @@ L'application permet de :
   rechercher des données avec des filtres et afficher toutes les missions.
 
 **Technologies :** C# / .NET 8 (`net8.0-windows`), Windows Forms, SQL Server LocalDB,
-ADO.NET pur (`System.Data.SqlClient`) en modes **connecté** et **déconnecté**, Repository Pattern.
+ADO.NET pur (`Microsoft.Data.SqlClient`) en modes **connecté** et **déconnecté**, Repository Pattern.
 Aucun Entity Framework, aucune migration : la base est créée par des **scripts SQL** (SQL FIRST).
 
 **Architecture en couches :**
@@ -182,7 +182,7 @@ Pour remettre les données d'essai à zéro : ré-exécuter `insert_data.sql` (o
 ### Lancer la solution
 
 1. Ouvrir `TP1_LSDA.sln` dans Visual Studio ;
-2. Compiler (les paquets NuGet `System.Data.SqlClient` et `System.Configuration.ConfigurationManager` sont restaurés automatiquement) ;
+2. Compiler (les paquets NuGet `Microsoft.Data.SqlClient` et `System.Configuration.ConfigurationManager` sont restaurés automatiquement) ;
 3. Lancer (F5). Au premier démarrage, un message confirme la création de la base à partir des scripts.
 
 ### ConnectionString
