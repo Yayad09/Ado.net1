@@ -286,6 +286,6 @@ Exemple de conflit détecté :
 
 | Membre | Rôle | Tâches |
 |---|---|---|
-| [VOTRE NOM COMPLET] | Base de données et accès aux données | Scripts SQL (tables, contraintes, déclencheur, données d'essai), `IRepository<T>`, `RepositoryBase<T>`, repositories spécialisés, initialisation automatique de la BD |
+| Yaya Diallo | Base de données et accès aux données | Scripts SQL (tables, contraintes, déclencheur, données d'essai), `IRepository<T>`, `RepositoryBase<T>`, repositories spécialisés, initialisation automatique de la BD |
 | Ayman-Abdelaziz Chanboun | Interface et validation | Formulaires WinForms (3 onglets), liaison DataSet/DataGridView, création de mission et vérification de conflit, recherches, validation et messages d'erreur |
 | Les deux | Documentation et tests | README, diagramme BD, captures d'écran, tests des cas de conflit et des saisies invalides |
