@@ -25,6 +25,9 @@ namespace TP1_LSDA
 
             try
             {
+                // Si LocalDB n'est pas joignable normalement, on s'y connecte par son canal nommé.
+                connectionString = LocalDbHelper.ResoudreConnexion(connectionString);
+
                 // SQL FIRST : la BD est créée par les scripts .sql (exécutés via ADO.NET si elle n'existe pas).
                 var initializer = new DatabaseInitializer(connectionString);
                 if (initializer.EnsureDatabase())
